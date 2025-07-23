@@ -1,10 +1,10 @@
 {
-    "name": "",
-    "description": "",
-    "version": "",
+    "name": "Syllaflow",
+    "description": "Upload syllabus PDFs and automatically extract key dates and details into organized Notion databases using AI.",
+    "version": "0.1",
     "manifest_version": 3,
     "action": {
-        "default_popup": "",
-        "default_icon": ""
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
     }
 }
