@@ -1,6 +1,6 @@
 {
     "name": "Syllaflow",
-    "description": "Upload syllabus PDFs and automatically extract key dates and details into organized Notion databases using AI.",
+    "description": "Upload course syllabi PDFs to extract key information and seamlessly integrate them into your Notion workspace using AI.",
     "version": "0.1",
     "manifest_version": 3,
     "icons": {
@@ -11,6 +11,25 @@
     },
     "action": {
         "default_popup": "popup.html",
-        "default_icon": "images/icon128.png"
-    }
+        "default_icon": {
+            "16": "images/icon16.png",
+            "32": "images/icon32.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "web_accessible_resources": [{
+        "resources": [
+            "lib/pdfjs/pdf.mjs",
+            "lib/pdfjs/pdf.worker.mjs"
+        ],
+        "matches": ["<all_urls>"]
+    }]
 }

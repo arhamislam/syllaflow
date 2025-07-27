@@ -9,14 +9,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=feedback,settings"/>
     </head>
     <body>
-        <!-- HEADER -->
+        <!-- Icon, Logo, and Buttons -->
         <div class="d-flex align-items-center mx-3 mt-3 gap-5">
-            <!-- Icon & Logo -->
             <div class="d-flex align-items-center">
                 <img src="images/icon_cropped.png" alt="Syllaflow Icon" class="me-2 header">
                 <img src="images/logo_cropped.png" alt="Syllaflow Logo" class="mt-1 header">
             </div>
-            <!-- Buttons -->
             <div class="d-flex align-items-center gap-2">
                 <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Feedback" aria-label="Feedback" class="mt-1 text-dark text-decoration-none"><span class="material-symbols-outlined">feedback</span></a>
                 <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Settings" aria-label="Settings" class="text-dark text-decoration-none"><span class="material-symbols-outlined">settings</span></a>
@@ -24,7 +22,7 @@
         </div>
 
         <!-- FILE UPLOAD -->
-        <div class="d-flex align-items-center mx-3 my-3">
+        <!-- <div class="d-flex align-items-center mx-3 my-3">
             <form>
                 <div class="mb-3">
                     <label for="file-input" class="form-label"><span class="fw-bold">Upload Syllabus</span> (.pdf only)</label>
@@ -32,9 +30,24 @@
                 </div>
                 <button type="submit" class="btn btn-dark w-100">Integrate to Notion</button>
             </form>
+        </div> -->
+
+        <!-- PDF Status Indicator -->
+        <div class="d-flex align-items-center mx-3 mt-3">
+            <span class="text-muted">Checking current page...</span>
         </div>
 
-        <!-- SCRIPTS -->
+        <!-- Progress Indicator -->
+        <div class="progress mx-3 my-3" role="progressbar" aria-label="Progress bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 0%"></div>
+        </div>
+
+        <!-- Process Button -->
+        <div class="d-flex mx-3 my-3">
+            <button class="btn btn-dark w-100" disabled>Integrate to Notion</button>
+        </div>
+
+        <!-- Scripts -->
         <script src="bootstrap/bootstrap.bundle.min.js"></script>
         <script src="popup.js"></script>
     </body>
