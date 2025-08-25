@@ -16,8 +16,8 @@
                 <img src="images/logo_cropped.png" alt="Syllaflow Logo" class="mt-1 header">
             </div>
             <div class="d-flex align-items-center gap-2">
-                <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Feedback" aria-label="Feedback" class="mt-1 text-dark text-decoration-none"><span class="material-symbols-outlined">feedback</span></a>
-                <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Settings" aria-label="Settings" class="text-dark text-decoration-none"><span class="material-symbols-outlined">settings</span></a>
+                <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Feedback" aria-label="Feedback" class="mt-1 text-dark text-decoration-none" id="feedback"><span class="material-symbols-outlined">feedback</span></a>
+                <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Settings" aria-label="Settings" class="text-dark text-decoration-none" id="settings"><span class="material-symbols-outlined">settings</span></a>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
         </div> -->
 
         <!-- PDF Status Indicator -->
-        <div class="d-flex align-items-center mx-3 mt-3">
+        <div class="d-flex align-items-center mx-3 mt-3" id="pdf-status">
             <span class="text-muted">Checking current page...</span>
         </div>
 
@@ -44,7 +44,7 @@
 
         <!-- Process Button -->
         <div class="d-flex mx-3 my-3">
-            <button class="btn btn-dark w-100" disabled>Integrate to Notion</button>
+            <button class="btn btn-dark w-100" id="process-pdf" disabled>Integrate to Notion</button>
         </div>
 
         <!-- Scripts -->
