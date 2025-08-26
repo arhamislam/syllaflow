@@ -1,46 +1,74 @@
-// // When the DOM is ready
+// When the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Enable Bootstrap tooltips
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
-    // Popup
-    document.getElementById('feedback').addEventListener('click', feedback);
-    document.getElementById('settings').addEventListener('click', settings);
-
-    // FLow
-    document.getElementById('process-pdf').addEventListener('click', processPDF);
+    // Initialize popup functionality
+    attachEventListeners();
+    getCurrentTabState();
 })
 
-// Updates the PDF status on popup
+/**
+ * Updates the PDF status display and button state
+ * @param {boolean} isPDF - Whether a PDF is detected on the current page
+ */
 function updatePDFStatus(isPDF) {
     const pdfStatus = document.getElementById('pdf-status');
-    const processPDF = document.getElementById('process-pdf');
+    const processPDFBtn = document.getElementById('process-pdf');
 
-    // If isPDF is true, update PDF status text and enable PDF button
     if(isPDF) {
-        pdfStatus.innerHTML = 'PDF detected!';
-        processPDF.disabled = false;
+        pdfStatus.textContent = 'PDF detected!';
+        pdfStatus.className = 'd-flex align-items-center mx-3 mt-3 text-success';
+        processPDFBtn.disabled = false;
     }
 
-    // If isPDF is false, update PDF status text and disable PDF button
     else {
-        pdfStatus.innerHTML = 'No PDF detected. Navigate to one';
-        processPDF.disabled = true;
+        pdfStatus.textContent = 'No PDF detected, please navigate to one.';
+        pdfStatus.className = 'd-flex align-items-center mx-3 mt-3 text-warning';
+        processPDFBtn.disabled = true;
     }
 }
 
-function processPDF() { console.log('PDF IS PROCESSING.'); }
-function feedback() { console.log('feedback has been clicked.'); }
-function settings() { console.log('settings has been clicked.'); }
+/**
+ * Gets the current tab state from background script
+ */
+function getCurrentTabState() {
+    chrome.runtime.sendMessage({action: 'getTabState'}, (response) => {
+        if(response && typeof response.isPDF === 'boolean') {
+            updatePDFStatus(response.isPDF);
+        }
 
-// Asking 'background.js' the state of the current tab the user is on
-chrome.runtime.sendMessage({action: 'getTabState'}, (response) => {
-    if(response && typeof response.isPDF === 'boolean') {
-        updatePDFStatus(response.isPDF);
+        else {
+            updatePDFStatus(false);
+        }
+    });
+}
+
+/**
+ * Attaches event listeners to popup elements
+ */
+function attachEventListeners() {
+    const feedbackBtn = document.getElementById('feedback');
+    const settingsBtn = document.getElementById('settings');
+    const processPDFBtn = document.getElementById('process-pdf');
+
+    // If user clicks on feedback button
+    if(feedbackBtn) {
+        feedbackBtn.addEventListener('click', handleFeedback);
     }
 
-    else {
-        updatePDFStatus(false);
+    // If user clicks on settings button
+    if(settingsBtn) {
+        settingsBtn.addEventListener('click', handleSettings);
     }
-});
+
+    // If user clicks on process PDF button
+    if(processPDFBtn) {
+        processPDFBtn.addEventListener('click', handleProcessPDF);
+    }
+}
+
+function handleFeedback() { console.log('Opening feedback...'); }
+function handleSettings() { console.log('Opening settings...'); }
+function handleProcessPDF() { console.log('Processing PDF...'); }
