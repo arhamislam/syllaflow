@@ -21,13 +21,20 @@
             </div>
         </div>
 
-        <!-- PDF Status Indicator -->
-        <div class="d-flex align-items-center mx-3 mt-3" id="pdf-status">
-            <span class="text-muted">Checking current page...</span>
+        <!-- PDF Status -->
+        <div class="mx-3 mt-3">
+            <label for="pdf-status" class="form-label small fw-bold mb-1">PDF Status:</label>
+            <div class="text-muted" id="pdf-status">Checking current page...</div>
+        </div>
+
+        <!-- File Upload -->
+        <div class="mx-3 mt-3">
+            <label for="pdf-file-input" class="form-label small fw-bold">Upload PDF (local files):</label>
+            <input class="form-control" type="file" id="pdf-file-input" accept=".pdf">
         </div>
 
         <!-- Process Button -->
-        <div class="d-flex mx-3 my-3">
+        <div class="mx-3 my-3">
             <button type="button" class="btn btn-dark w-100" id="process-pdf" disabled>Integrate to Notion</button>
         </div>
 

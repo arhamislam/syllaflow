@@ -1,7 +1,7 @@
 {
     "name": "Syllaflow",
-    "description": "Upload course syllabi PDFs to extract key information and seamlessly integrate them into your Notion workspace using AI.",
-    "version": "0.1",
+    "description": "AI-powered extension that extracts key information from course syllabus PDFs and integrates them into Notion workspaces.",
+    "version": "0.0.1",
     "manifest_version": 3,
     "icons": {
         "16": "images/icon16.png",
@@ -21,16 +21,17 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": [
-        "tabs",
-        "activeTab",
-        "storage"
+    "permissions": ["tabs", "activeTab", "scripting"],
+    "web_accessible_resources": [
+        {
+            "resources": ["pdfjs/pdf.mjs", "pdfjs/pdf.worker.mjs"],
+            "matches": ["<all_urls>"]
+        }
     ],
-    "web_accessible_resources": [{
-        "resources": [
-            "lib/pdfjs/pdf.mjs",
-            "lib/pdfjs/pdf.worker.mjs"
-        ],
-        "matches": ["<all_urls>"]
-    }]
+    "content_scripts": [
+        {
+            "js": ["content.js"],
+            "matches": ["<all_urls>"]
+        }
+    ]
 }
