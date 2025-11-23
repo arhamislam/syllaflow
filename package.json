@@ -1,0 +1,29 @@
+{
+  "name": "syllaflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhamislam/syllaflow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arhamislam/syllaflow/issues"
+  },
+  "homepage": "https://github.com/arhamislam/syllaflow#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "firebase": "^12.6.0",
+    "pdfjs-dist": "^5.4.394"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.2.1",
+    "vite": "^7.2.4"
+  }
+}
